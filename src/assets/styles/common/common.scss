@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+btn {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+main {
+    background: rgb(43, 41, 61);
+    height: 100svh;
+}
