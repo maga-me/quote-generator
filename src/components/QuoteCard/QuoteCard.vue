@@ -18,11 +18,15 @@ const { quote, error } = storeToRefs(quoteStore)
 
 import { useSpeechSynthesis } from '@vueuse/core';
 
-const textToSpeak = ref('');
+const text = ref('');
 const { speak, stop, isSpeaking } = useSpeechSynthesis();
 
-const handleSpeak = () => {
-  speak({ text: textToSpeak.value });
+const startSpeaking = () => {
+  speak({ text: text.value });
+};
+
+const stopSpeaking = () => {
+  stop();
 };
 </script>
 
@@ -73,10 +77,9 @@ const handleSpeak = () => {
   </div>
 
   <div>
-    <textarea v-model="textToSpeak" placeholder="Enter text to speak"></textarea>
-    <button @click="handleSpeak" :disabled="isSpeaking">Speak</button>
-    <button @click="stop" :disabled="!isSpeaking">Stop</button>
-    <p v-if="isSpeaking">Speaking...</p>
+    <textarea v-model="text" placeholder="Enter text to speak"></textarea>
+    <button @click="startSpeaking" :disabled="isSpeaking">Speak</button>
+    <button @click="stopSpeaking" :disabled="!isSpeaking">Stop</button>
   </div>
 </template>
 
