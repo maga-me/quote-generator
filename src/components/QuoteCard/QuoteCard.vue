@@ -16,24 +16,26 @@ function fetchQuote() {
 
 const { quote, error } = storeToRefs(quoteStore)
 
-import { useSpeechSynthesis } from '@vueuse/core';
+// import { useSpeechSynthesis } from '@vueuse/core';
 
-const text = ref('');
-const { speak, stop, isSpeaking, supported, toggle } = useSpeechSynthesis();
+// const text = ref('');
+// const { speak, stop, isSpeaking, supported, toggle } = useSpeechSynthesis();
 
-// Function to start speaking
-const startSpeaking = () => {
-  if (supported.value) {
-    speak({ text: text.value });
-  } else {
-    alert('Speech synthesis is not supported in this browser.');
-  }
-};
+// // Function to start speaking
+// const startSpeaking = () => {
+//   if (supported.value) {
+//     speak({ text: text.value });
+//   } else {
+//     alert('Speech synthesis is not supported in this browser.');
+//   }
+// };
 
-// Function to stop speaking
-const stopSpeaking = () => {
-  stop();
-};
+// // Function to stop speaking
+// const stopSpeaking = () => {
+//   stop();
+//   startSpeaking("satrt Vue speach")
+// };
+
 </script>
 
 <template>
@@ -80,14 +82,6 @@ const stopSpeaking = () => {
         </g>
       </svg>
     </button>
-  </div>
-
-  <div>
-    <h1>Vue 3 Speech Synthesis</h1>
-    <textarea v-model="text" placeholder="Enter text to speak"></textarea>
-    <button @click="startSpeaking" :disabled="isSpeaking">Speak</button>
-    <button @click="stopSpeaking" :disabled="!isSpeaking">Stop</button>
-    <p v-if="isSpeaking">Speaking...</p>
   </div>
 </template>
 
